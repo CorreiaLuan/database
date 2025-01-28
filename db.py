@@ -97,7 +97,9 @@ class Db:
         self.operation(query,"update")
 
 class sqlServerDb(Db):
-    def __init__(self, server=None, database=None, uid=None, pwd=None, access_path=None):
+    def __init__(self, server=None, database=None, uid=None, pwd=None, access_path=None,driver=None):
+        if access_path is None and driver is None:
+            driver = '{SQL Server}'
         super().__init__(server, database, uid, pwd, access_path,driver)
 
 class dbAtivos(Db):
